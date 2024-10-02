@@ -1,4 +1,4 @@
-﻿namespace DAL;
+﻿namespace DAL.Models;
 
 public class Order
 {
@@ -9,8 +9,11 @@ public class Order
         Quantity = quantity;
     }
 
-    public required Customer Customer { get; set; }
-    public required Product Product { get; set; }
-    public required int Quantity { get; set; }
+    public Customer Customer { get; set; }
+
+    public Product Product { get; set; }
+
+    public int Quantity { get; set; }
+
     public decimal TotalPrice { get; set; } = 0m;
 }

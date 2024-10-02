@@ -1,4 +1,4 @@
-﻿namespace DAL;
+﻿namespace DAL.Models;
 
 public class Customer
 {
