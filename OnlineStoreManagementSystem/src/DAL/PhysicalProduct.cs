@@ -13,5 +13,5 @@ public class PhysicalProduct : Product
         ShippingCost = 0m;
     }
     
-    public decimal ShippingCost { get; }
+    public decimal ShippingCost { get; set; }
 }

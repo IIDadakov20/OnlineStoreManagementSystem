@@ -13,5 +13,5 @@ public class DigitalProduct : Product
         FileSizeMb = 0;
     }
     
-    public int FileSizeMb { get; }
+    public int FileSizeMb { get; set; }
 }

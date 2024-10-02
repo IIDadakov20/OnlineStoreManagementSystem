@@ -16,9 +16,9 @@ public abstract class Product
         Stock = 0;
     }
     
-    public string Name { get; }
+    public string Name { get; set; }
 
-    public decimal Price { get; }
+    public decimal Price { get; set; }
     
     public int Stock { get; set; }
 }
