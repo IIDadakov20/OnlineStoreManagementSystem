@@ -6,6 +6,7 @@ namespace BLL.Services;
 public class OrderService : IOrder, IDiscount
 {
     private ProductService _productService = new ProductService();
+    private PaymentService _paymentService = new PaymentService();
 
     public void ApplyFixedDiscount(Product product, decimal discount)
     {
@@ -45,7 +46,7 @@ public class OrderService : IOrder, IDiscount
         return false;
     }
 
-    public void CompleteOrder(Customer customer, Product product, int quantity)
+    public void CompleteOrder(Customer customer, Product product, int quantity, int paymentType)
     {
         Order order = new Order(customer, product, quantity);
 
@@ -58,7 +59,21 @@ public class OrderService : IOrder, IDiscount
             order.TotalPrice = product.Price * quantity;
         }
 
+        ProcessPaymentMethod(paymentType, order.TotalPrice);
+
         Console.WriteLine($"{quantity} units of {product.Name} deducted from stock.");
         Console.WriteLine($"Order completed for {customer.FirstName} {customer.LastName}. Product processed. Total price {order.TotalPrice}");
+    }
+
+    public void ProcessPaymentMethod(int paymentType, decimal price)
+    {
+        if (paymentType == 1)
+        {
+            _paymentService.CreditCardPayment(price);
+        }
+        else if(paymentType == 2)
+        {
+            _paymentService.PayPalPayment(price);
+        }
     }
 }

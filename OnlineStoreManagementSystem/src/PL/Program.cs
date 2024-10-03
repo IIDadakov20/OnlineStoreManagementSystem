@@ -34,7 +34,7 @@ public class Program
         {
             // Apply a 50% discount to the laptop order
             orderService.ApplyPercentageDiscount(laptop, 50);
-            orderService.CompleteOrder(customer1, laptop, 3);
+            orderService.CompleteOrder(customer1, laptop, 3, 1);
         }
 
         Console.WriteLine();
@@ -43,7 +43,7 @@ public class Program
         {
             // Apply a $50 fixed discount on ebooks
             orderService.ApplyFixedDiscount(ebook, 50);
-            orderService.CompleteOrder(customer2, ebook, 1);
+            orderService.CompleteOrder(customer2, ebook, 1, 1);
         }
 
         Console.WriteLine();
@@ -52,7 +52,7 @@ public class Program
         {
             // Apply a $5 fixed discount on ebooks
             orderService.ApplyFixedDiscount(ebook, 5);
-            orderService.CompleteOrder(customer1, ebook, 15);
+            orderService.CompleteOrder(customer1, ebook, 15, 2);
         }
 
         Console.WriteLine();
@@ -68,7 +68,7 @@ public class Program
         // Attempt to create an order with exact stock
         if (orderService.CreateOrder(laptop, 2))
         {
-            orderService.CompleteOrder(customer2, laptop, 2);
+            orderService.CompleteOrder(customer2, laptop, 2, 2);
         }
     }
 }
